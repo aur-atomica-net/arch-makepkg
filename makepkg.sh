@@ -10,7 +10,7 @@ eval $(gpg-agent --daemon)
 
 makepkg --force --noconfirm --syncdeps --install --nocheck --sign
 
-repo-add --sign ${REPO}.db.tar.gz *.pkg.tar.xz
+repo-add --sign --verify ${REPO}.db.tar.gz *.pkg.tar.xz
 
 mv ${REPO}.db.tar.gz ${REPO}.db
 mv ${REPO}.db.tar.gz.sig ${REPO}.db.sig
