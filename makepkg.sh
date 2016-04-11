@@ -10,7 +10,7 @@ eval $(gpg-agent --daemon)
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
-MAKEFLAGS="${MAKEFLAGS}" makepkg --force --noconfirm --syncdeps --install --nocheck --sign
+MAKEFLAGS="-J$(nproc)" makepkg --force --noconfirm --syncdeps --install --nocheck --sign
 
 curl -L -o ${REPO}.db.tar.gz http://aur.atomica.net/atomica/x86_64/${REPO}.db
 curl -L -o ${REPO}.db.tar.gz.sig http://aur.atomica.net/atomica/x86_64/${REPO}.db.sig
