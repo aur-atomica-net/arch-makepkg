@@ -8,6 +8,8 @@ GNUPGHOME=$(pwd)/.gnupg
 
 eval $(gpg-agent --daemon)
 
+pacman -Suy
+
 makepkg --force --noconfirm --syncdeps --install --nocheck --sign
 
 repo-add --sign --verify ${REPO}.db.tar.gz *.pkg.tar.xz
