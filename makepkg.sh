@@ -12,6 +12,8 @@ sudo pacman -Suy
 
 makepkg --force --noconfirm --syncdeps --install --nocheck --sign
 
+curl -L -o ${REPO}.db.tar.gz http://aur.atomica.net/atomica/x86_64/${REPO}.db
+curl -L -o ${REPO}.db.tar.gz.sig http://aur.atomica.net/atomica/x86_64/${REPO}.db.sig
 repo-add --sign --verify ${REPO}.db.tar.gz *.pkg.tar.xz
 
 mv ${REPO}.db.tar.gz ${REPO}.db
