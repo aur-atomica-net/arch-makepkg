@@ -8,7 +8,7 @@ GNUPGHOME=$(pwd)/.gnupg
 
 eval $(gpg-agent --daemon)
 
-sudo pacman -Suy
+sudo pacman --sync --sysupgrade --refresh --noconfirm
 
 makepkg --force --noconfirm --syncdeps --install --nocheck --sign
 
