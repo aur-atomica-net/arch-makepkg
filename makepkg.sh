@@ -10,7 +10,7 @@ eval $(gpg-agent --daemon)
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
-MAKEFLAGS="-J$(nproc)" makepkg --force --noconfirm --syncdeps --install --nocheck --sign
+MAKEFLAGS="-J$(nproc)" makepkg --force --noconfirm --syncdeps --skippgpcheck --install --nocheck --sign
 
 http_proxy="" curl -L -o ${REPO}.db.tar.gz http://aur.atomica.net/atomica/x86_64/${REPO}.db
 sha256sum ${REPO}.db.tar.gz
