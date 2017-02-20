@@ -10,6 +10,9 @@ eval $(gpg-agent --daemon)
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
+# https://github.com/niemeyer/gopkg/issues/50
+git config --global http.https://gopkg.in.followRedirects true
+
 MAKEFLAGS="-J$(nproc)" makepkg --force --noconfirm --syncdeps --skippgpcheck --install --nocheck --sign
 
 http_proxy="" curl -L -o ${REPO}.db.tar.gz http://aur.atomica.net/atomica/x86_64/${REPO}.db
