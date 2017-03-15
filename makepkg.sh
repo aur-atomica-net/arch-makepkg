@@ -13,6 +13,10 @@ sudo pacman --sync --sysupgrade --refresh --noconfirm
 # https://github.com/niemeyer/gopkg/issues/50
 git config --global http.https://gopkg.in.followRedirects true
 
+if [ -z "$CCACHE_DIR" ]; then
+  export PATH="/usr/lib/ccache/bin/:$PATH"
+fi
+
 MAKEFLAGS="-j$(nproc)" makepkg --force --noconfirm --syncdeps --skippgpcheck --install --nocheck --sign
 
 http_proxy="" curl -L -o ${REPO}.db.tar.gz http://aur.atomica.net/atomica/x86_64/${REPO}.db
