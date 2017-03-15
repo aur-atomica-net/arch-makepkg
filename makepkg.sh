@@ -13,7 +13,7 @@ sudo pacman --sync --sysupgrade --refresh --noconfirm
 # https://github.com/niemeyer/gopkg/issues/50
 git config --global http.https://gopkg.in.followRedirects true
 
-if [ -z "$CCACHE_DIR" ]; then
+if [ ! -z "$CCACHE_DIR" ]; then
   export PATH="/usr/lib/ccache/bin/:$PATH"
 fi
 
