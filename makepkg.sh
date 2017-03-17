@@ -14,7 +14,7 @@ sudo pacman --sync --sysupgrade --refresh --noconfirm
 git config --global http.https://gopkg.in.followRedirects true
 
 if [ ! -z "$CCACHE_DIR" ]; then
-  sed 's/!ccache/ccache/g' -i'' /etc/makepkg.conf
+  sudo sed 's/!ccache/ccache/g' -i'' /etc/makepkg.conf
 fi
 
 MAKEFLAGS="-j$(nproc)" makepkg --force --noconfirm --syncdeps --skippgpcheck --install --nocheck --sign
