@@ -4,7 +4,7 @@ set -x
 set -o pipefail
 
 REPO=$1
-GNUPGHOME=$(pwd)/.gnupg
+export GNUPGHOME=$(pwd)/.gnupg
 
 eval $(gpg-agent --daemon)
 
