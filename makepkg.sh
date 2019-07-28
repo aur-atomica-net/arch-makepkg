@@ -17,7 +17,7 @@ if [ ! -z "$CCACHE_DIR" ]; then
   sudo sed 's/!ccache/ccache/g' -i'' /etc/makepkg.conf
 fi
 
-MAKEFLAGS="-j$(nproc)" makepkg --force --noconfirm --syncdeps --skippgpcheck --install --nocheck --sign
+MAKEFLAGS="-j$(nproc)" makepkg --force --noconfirm --syncdeps --skippgpcheck --install --sign
 
 http_proxy="" curl -L -o ${REPO}.db.tar.gz http://aur.atomica.net/atomica/x86_64/${REPO}.db
 sha256sum ${REPO}.db.tar.gz
